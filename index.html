@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComicCraft – AI Comic Story Creator</title>
+  <meta name="description" content="Turn your imagination into stunning AI-generated comics with storylines, dialogues, comic illustrations, and downloadable PDFs.">
+  <link rel="stylesheet" href="./static/css/style.css">
+  <link rel="icon" type="image/png" href="./static/images/logo.png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-nav">
+    <div class="container nav-content">
+      <a href="#" class="brand-logo" id="nav-brand-logo">
+        <img src="./static/images/logo.png" alt="ComicCraft Logo">
+      </a>
+      <div class="nav-links">
+        <span class="nav-badge">⚡ Generative AI Powered</span>
+        <a href="#create-comic" class="nav-link">Create Comic</a>
+        <a href="#developer-credits" class="nav-link">Developer & Designer</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-badge-pill">
+            <span>✨ Turn Words into Graphic Art</span>
+          </div>
+          <h1 class="hero-title">
+            Turn Your <span class="highlight">Imagination</span> Into a Comic
+          </h1>
+          <p class="hero-description">
+            ComicCraft transforms your wildest story ideas into fully realized comic strips complete with dynamic scene panels, character dialogues, narration, vibrant illustrations, and printable PDFs.
+          </p>
+
+          <div class="hero-feature-tags">
+            <div class="feature-tag"><span class="dot"></span> Structured Outlines (Gemini)</div>
+            <div class="feature-tag"><span class="dot"></span> Rich Speech & Dialogue</div>
+            <div class="feature-tag"><span class="dot"></span> AI Comic Illustrations</div>
+            <div class="feature-tag"><span class="dot"></span> Instant PDF Export</div>
+          </div>
+
+          <a href="#create-comic" class="btn-generate" style="max-width: 280px; text-decoration: none;" id="cta-hero-btn">
+            Create Your Comic ⚡
+          </a>
+        </div>
+
+        <div class="hero-showcase">
+          <div class="showcase-card">
+            <div class="showcase-header">
+              <span class="showcase-title">Issue #1: Sneak Peek</span>
+              <span class="showcase-badge">PREVIEW</span>
+            </div>
+            <div class="showcase-mockup-strip">
+              <div class="mockup-panel">
+                <div class="mockup-panel-visual">
+                  <span class="mockup-sfx">POW!</span>
+                </div>
+                <div class="mockup-panel-caption">Panel 1: The Gateway Opens</div>
+              </div>
+              <div class="mockup-panel">
+                <div class="mockup-panel-visual" style="background: linear-gradient(135deg, #04241b, #059669);">
+                  <span class="mockup-sfx" style="color: #ff85a1;">WHOOSH!</span>
+                </div>
+                <div class="mockup-panel-caption">Panel 2: Ancient Whispers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comic Creation Form Section -->
+  <main class="creation-section" id="create-comic">
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="form-header">
+          <h2 class="form-headline">Forge Your Comic Strip</h2>
+          <p class="form-subheadline">Fill in your creative details or pick an inspiration preset to begin.</p>
+        </div>
+
+        <!-- Preset Inspirations Bar -->
+        <div class="presets-container">
+          <div class="presets-label">
+            <span>💡 Quick Story Presets:</span>
+          </div>
+          <div class="presets-chips">
+            <button type="button" class="preset-btn" data-preset="fox">🦊 Mystic Forest Fox</button>
+            <button type="button" class="preset-btn" data-preset="cyber">🌆 Cyber Detective</button>
+            <button type="button" class="preset-btn" data-preset="space">🚀 Cosmic Horizon</button>
+            <button type="button" class="preset-btn" data-preset="academy">✨ Magic Academy</button>
+            <button type="button" class="preset-btn" data-preset="fantasy">⚔️ Dragon Blacksmith</button>
+          </div>
+        </div>
+
+        <form action="#" method="POST" id="comic-form">
+          <div class="form-grid">
+
+            <!-- Field 1: Story Prompt -->
+            <div class="form-group full-width">
+              <label for="story_prompt" class="form-label">
+                <span>1. Story Prompt <span style="color: var(--comic-red);">*</span></span>
+                <span class="label-hint">Max 500 characters</span>
+              </label>
+              <textarea 
+                id="story_prompt" 
+                name="story_prompt" 
+                class="textarea-field" 
+                placeholder="e.g. A brave fox exploring an enchanted forest to uncover a hidden celestial crystal..." 
+                required 
+                minlength="3" 
+                maxlength="500"
+              >A brave fox exploring an enchanted forest</textarea>
+            </div>
+
+            <!-- Field 2: Character Name -->
+            <div class="form-group">
+              <label for="character_name" class="form-label">
+                <span>2. Main Character Name <span style="color: var(--comic-red);">*</span></span>
+                <span class="label-hint">Max 50 chars</span>
+              </label>
+              <input 
+                type="text" 
+                id="character_name" 
+                name="character_name" 
+                class="input-field" 
+                placeholder="e.g. Leo" 
+                value="Leo" 
+                required 
+                maxlength="50"
+              >
+            </div>
+
+            <!-- Field 3: Setting -->
+            <div class="form-group">
+              <label for="setting" class="form-label">
+                <span>3. Setting</span>
+              </label>
+              <select id="setting" name="setting" class="select-field">
+                <option value="Forest" selected>Forest</option>
+                <option value="School">School</option>
+                <option value="City">City</option>
+                <option value="Space">Space</option>
+                <option value="Fantasy World">Fantasy World</option>
+                <option value="Custom">Custom</option>
+              </select>
+            </div>
+
+            <!-- Field 4: Story Tone -->
+            <div class="form-group">
+              <label for="tone" class="form-label">
+                <span>4. Story Tone</span>
+              </label>
+              <select id="tone" name="tone" class="select-field">
+                <option value="Adventure" selected>Adventure</option>
+                <option value="Funny">Funny</option>
+                <option value="Dramatic">Dramatic</option>
+                <option value="Emotional">Emotional</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Light-hearted">Light-hearted</option>
+              </select>
+            </div>
+
+            <!-- Field 5: Art Style -->
+            <div class="form-group">
+              <label for="art_style" class="form-label">
+                <span>5. Art Style</span>
+              </label>
+              <select id="art_style" name="art_style" class="select-field">
+                <option value="Comic Book" selected>Comic Book</option>
+                <option value="Anime">Anime</option>
+                <option value="Cartoon">Cartoon</option>
+                <option value="Pixel Art">Pixel Art</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Realistic">Realistic</option>
+              </select>
+            </div>
+
+            <!-- Field 6: Number of Panels -->
+            <div class="form-group full-width">
+              <label class="form-label">
+                <span>6. Number of Panels</span>
+                <span class="label-hint">Choose story length</span>
+              </label>
+              <div class="panel-selector">
+                <label class="panel-radio-label">
+                  <input type="radio" name="panel_count" value="3">
+                  <div class="panel-radio-box">3 Panels</div>
+                </label>
+                <label class="panel-radio-label">
+                  <input type="radio" name="panel_count" value="5" checked>
+                  <div class="panel-radio-box">5 Panels (Default)</div>
+                </label>
+                <label class="panel-radio-label">
+                  <input type="radio" name="panel_count" value="6">
+                  <div class="panel-radio-box">6 Panels</div>
+                </label>
+                <label class="panel-radio-label">
+                  <input type="radio" name="panel_count" value="8">
+                  <div class="panel-radio-box">8 Panels</div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="submit-container">
+              <button type="submit" class="btn-generate" id="btn-generate">
+                ⚡ Generate Comic
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Project Developer & Designer Showcase Section -->
+  <section class="developer-section" id="developer-credits">
+    <div class="container">
+      <div class="developer-card">
+        <div class="developer-decor-badge">PROUDLY PRESENTED</div>
+        <div class="developer-avatar-wrapper">
+          <div class="developer-avatar">
+            <span class="developer-initials">RR</span>
+          </div>
+          <span class="developer-status-badge">👩‍💻 Lead Developer</span>
+        </div>
+        <div class="developer-info">
+          <div class="developer-role-tag">
+            <span class="role-icon">⚡</span>
+            <span>Project Developer &amp; Designer</span>
+          </div>
+          <h2 class="developer-name">Rajalakshmi R</h2>
+          <div class="developer-degree">
+            <span class="degree-icon">🎓</span>
+            <span>2nd B.Sc Computer Science</span>
+          </div>
+          <div class="developer-college">
+            <span class="college-icon">🏛️</span>
+            <span>Government Arts College (Autonomous), Kumbakonam.</span>
+          </div>
+          <div class="developer-skills-collage">
+            <span class="skill-pill"><span class="pill-dot emerald"></span> AI Comic Storyteller</span>
+            <span class="skill-pill"><span class="pill-dot maroon"></span> UI/UX Comic Design</span>
+            <span class="skill-pill"><span class="pill-dot emerald"></span> Python &amp; Web Systems</span>
+            <span class="skill-pill"><span class="pill-dot maroon"></span> Green-Maroon-Black Collage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay" aria-live="assertive" role="dialog" aria-modal="true">
+    <div class="loading-modal">
+      <span class="loading-badge">GENERATING ISSUE #1</span>
+      <h2 class="loading-title">Creating Your Comic...</h2>
+      <p class="loading-subtitle">Please wait while our generative AI engines orchestrate your story.</p>
+
+      <div class="progress-container">
+        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+      </div>
+
+      <div class="stages-list">
+        <div class="stage-item active" data-stage="0">
+          <div class="stage-icon">1</div>
+          <span>1. Understanding your story...</span>
+        </div>
+        <div class="stage-item" data-stage="1">
+          <div class="stage-icon">2</div>
+          <span>2. Creating comic outline...</span>
+        </div>
+        <div class="stage-item" data-stage="2">
+          <div class="stage-icon">3</div>
+          <span>3. Writing dialogue...</span>
+        </div>
+        <div class="stage-item" data-stage="3">
+          <div class="stage-icon">4</div>
+          <span>4. Creating illustrations...</span>
+        </div>
+        <div class="stage-item" data-stage="4">
+          <div class="stage-icon">5</div>
+          <span>5. Building comic layout...</span>
+        </div>
+        <div class="stage-item" data-stage="5">
+          <div class="stage-icon">6</div>
+          <span>6. Preparing PDF...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <p class="footer-title">© 2026 ComicCraft – AI Comic Story Creator</p>
+        <span class="nav-badge" style="font-size: 0.72rem; margin-top: 6px;">⚡ Generative AI Powered</span>
+      </div>
+      <div class="footer-developer-credit">
+        <p>Project Developer &amp; Designer: <strong>Rajalakshmi R</strong></p>
+        <p class="footer-subtext">2nd B.Sc Computer Science • Government Arts College (Autonomous), Kumbakonam.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./static/js/script.js"></script>
+</body>
+</html>
